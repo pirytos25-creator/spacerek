@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#050a0f">
+  <title>Archiwum Cienia — Żywa Ulica 2.5D V3</title>
+  <link rel="icon" href="data:,">
+  <link rel="preload" as="image" href="assets/photos/1.png">
+  <link rel="preload" as="image" href="assets/photos/2.png">
+  <link rel="preload" as="image" href="assets/photos/3.png">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <main class="experience is-overview" id="experience" aria-label="Żywa Ulica — prototyp spaceru 2.5D po Toruniu">
+    <!-- WORLD LAYER: Contains the entire 3D space -->
+    <section class="world" aria-live="polite">
+      
+      <!-- BACKGROUND / SCENES: The main architecture/street -->
+      <div class="scenes-container">
+        <figure class="scene" data-scene="0"><img src="assets/photos/1.png" alt="Widok wybranej trasy nad nocnym Toruniem" draggable="false"></figure>
+        <figure class="scene" data-scene="1"><img src="assets/photos/2.png" alt="Zejście kamery nad toruńską ulicę" draggable="false"></figure>
+        <figure class="scene" data-scene="2"><img src="assets/photos/3.png" alt="Początek nocnej toruńskiej ulicy" draggable="false"></figure>
+        <figure class="scene" data-scene="3"><img src="assets/photos/4.png" alt="Ulica z latarnią na pierwszym planie" draggable="false"></figure>
+        <figure class="scene" data-scene="4"><img src="assets/photos/5.png" alt="Środek ulicy" draggable="false"></figure>
+        <figure class="scene" data-scene="5"><img src="assets/photos/6.png" alt="Węższy fragment ulicy" draggable="false"></figure>
+        <figure class="scene" data-scene="6"><img src="assets/photos/7.png" alt="Plac przed archiwum" draggable="false"></figure>
+        <figure class="scene" data-scene="7"><img src="assets/photos/8.png" alt="Brama wejściowa" draggable="false"></figure>
+      </div>
+
+      <!-- VIGNETTE (Post-process) -->
+      <div class="vignette" aria-hidden="true"></div>
+    </section>
+
+    <!-- HUD -->
+    <header class="hud-head">
+      <div>
+        <p class="eyebrow">Archiwum Cienia</p>
+        <p class="prototype-label">Żywa Ulica</p>
+      </div>
+      <div class="hud-controls">
+        <button class="audio-toggle" id="audioToggle" type="button" aria-label="Włącz dźwięk">
+          <span class="icon-unmute" aria-hidden="true">🔈</span>
+          <span class="icon-mute" aria-hidden="true" style="display:none;">🔇</span>
+        </button>
+        <div class="position-readout" aria-label="Etap trasy">
+          <span id="positionNumber">01</span><i></i><span>08</span>
+        </div>
+      </div>
+    </header>
+
+    <section class="route-intro" id="routeIntro" aria-labelledby="routeTitle">
+      <p class="route-kicker">Uliczka 01 · Toruń, Stare Miasto</p>
+      <h1 id="routeTitle">Miasto budzi się<br>w cieniu</h1>
+      <button class="primary-action" id="enterRoute" type="button"><span>Wejdź w uliczkę</span><b aria-hidden="true">↓</b></button>
+    </section>
+
+    <div class="scene-caption" id="sceneCaption">
+      <div><p id="sceneName">Początek traktu</p></div>
+    </div>
+
+    <button class="investigate" id="investigate" type="button" aria-label="Wejdź do archiwum">WEJDŹ</button>
+
+    <footer class="walk-controls" id="walkControls">
+      <div class="desktop-help"><kbd>W</kbd><kbd>↑</kbd><span>Naprzód</span></div>
+      <div class="desktop-help"><kbd>S</kbd><kbd>↓</kbd><span>Wstecz</span></div>
+      <div class="mobile-help">Przesuń w górę / dół</div>
+      <button id="returnToMap" type="button">Powrót do mapy</button>
+    </footer>
+  </main>
+
+  <dialog class="destination-dialog" id="destinationDialog" aria-labelledby="destinationTitle">
+    <button class="dialog-close" id="closeDialog" type="button" aria-label="Zamknij">×</button>
+    <p class="route-kicker">Archiwum Cienia · Koniec trasy</p>
+    <h2 id="destinationTitle">Punkt docelowy</h2>
+    <p>Tutaj w pełnej wersji otworzyłaby się lokacja fabularna.</p>
+  </dialog>
+</body>
+</html>
